@@ -3,13 +3,13 @@
 using namespace std;
 
 int main() {
-    int list[10];
+    int vector[10];
 
     for(int i = 0; i < 10; i++) {
-        cin >> list[i];
+        cin >> vector[i];
     }
     for (int i = 0; i < 10; i++) {
-        cout << list[i] << " ";
+        cout << vector[i] << " ";
     }
     cout << endl;
 
