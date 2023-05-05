@@ -54,7 +54,6 @@ class LinkedList:
                     size += 1
                     break
             print(size)
-                
 
 
 
