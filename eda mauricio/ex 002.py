@@ -1,17 +1,15 @@
 class Node:
     def __init__(self, value):
         self.value = value
-        self.prox = None
-    
+        self.prox = None    
     def show_node(self):
         return (f'{self.value}')
 
 class LinkedList:
     def __init__(self):
-        self.head = None
-    
+        self.head = None  
     def Insert(self, x):
-        if self.head != None:
+        if self.head is not None:
             x.prox = self.head
             self.head = x
         else:
@@ -25,9 +23,11 @@ class LinkedList:
                     temp.prox = x # the next element is "x"
                     break
                 else:
-                    temp = temp.prox # if there is another element after 1 the temp now points to this number
+                    temp = temp.prox 
+                    # if there is another element after 1 the temp now points to this number
         else:
-            self.head = x # if the list is empty the first is x
+            self.head = x 
+            # if the list is empty the first is x
             
     def show(self):
         if self.head is not None:
