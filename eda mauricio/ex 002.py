@@ -26,7 +26,6 @@ class LinkedList:
                 print(f'{temp.show_node()}')
                 temp = temp.prox
 
-
 def main():
     lista = LinkedList()
 
