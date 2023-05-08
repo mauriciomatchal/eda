@@ -7,7 +7,7 @@ class Node:
 class Queue: # In a queue we insert nodes in the end and remove nodes from the beginning.
     def __init__(self):
         self.head = None
-    def insert_queue(self, x):
+    def insert_queue(self,x ):
         if self.head is not None:  # checks if the list is not empty
             temp = self.head  # creates a pointer to the first element called "temp"
             while True:

@@ -21,12 +21,10 @@ class Stack:
         else:
             self.head = temp.prox
             temp.prox = None
-            
-             
-            
+#
     def show(self):
         if self.head is not None:
-            print('>--------<')
+            print('*** Pilha ***')
             temp = self.head
             while temp is not None:
                 print(f'{temp.show_node()}')
