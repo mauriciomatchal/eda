@@ -44,10 +44,9 @@ class LinkedList:
             print('<---->')
             temp = self.head
             while temp is not None:
-                
-                print(f'{temp.show_node()}')
+                if temp.show_node():
+                    print(f'{temp.show_node()}')
                 temp = temp.prox
-
 
 def main():
 
