@@ -9,6 +9,6 @@ int main() {
     char sky = '>';
     for (int i = 1; i <= size; i++) {
         cout << string(size - i, sky) << string(i, block) << endl;
-    }
+    } // string(a, b) -> printa "b", a vezes
     return 0;
 }

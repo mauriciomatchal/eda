@@ -17,6 +17,25 @@ class DoubleList:
             node.ant = temp
         else:
             self.head = node
+    
+    def delete_node(self, node):
+        if self.head.value == node:
+            self.head = self.head.prox
+            if self.head.value is not None:
+                self.head.ant = None
+        else:
+            temp = self.head
+            while temp is not None:
+                if temp.value == node:
+                    temp.ant.prox = temp.prox
+                    if temp.prox is not None:
+                        temp.prox.ant = temp.ant
+                    temp.prox = None
+                    temp.ant = None
+                    break
+                else:              
+                    temp = temp.prox
+    
     def show(self):
         if self.head is not None:
             print('<---->')
@@ -29,9 +48,10 @@ def main():
     l = DoubleList()
     l.append_last(Node(1))
     l.append_last(Node(2))
+    l.append_last(Node(3))
     l.show()
-    l.append_last(Node(3))
-    l.append_last(Node(3))
+    
+    l.delete_node(1)
     l.show()
     
 if '__main__' == __name__:
