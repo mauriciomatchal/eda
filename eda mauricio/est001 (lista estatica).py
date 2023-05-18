@@ -2,10 +2,10 @@
 class Node:
     def __init__(self, value):
         self.value = value
-    def show(self):
+    def show_node(self):
         return f'Valor: {self.value}'
-    
-class StaticList:
+        
+class Static:
     def __init__(self, size):
         self.current_size = 0
         self.maximum_size = size
@@ -18,17 +18,27 @@ class StaticList:
             self.current_size += 1
         else:
             print('List is full')
+#
+    def append_last(self, node):
+        if self.current_size < self.maximum_size:
+            self.list[self.maximum_size - 1] = Node(node)
+        else:
+            print('List is full')
+#
     def show(self):
-        for x in range(self.current_size):
-            print(f'{x}: {self.list[x].show()}')
-
+        for x in range(self.maximum_size):
+            if self.list[x] is not None:
+                print(f'{x}: {self.list[x].show_node()}')
+            else:
+                print(f'{x}: Valor: None')
 
 def main():
-    lista = StaticList(3)
+    lista = Static(10)
     lista.insert(1)
     lista.insert(2)
     lista.insert(3)
-    lista.insert(4)
+    lista.append_last(9)
+    lista.append_last(8)
     lista.show()
 
 if __name__ == '__main__':

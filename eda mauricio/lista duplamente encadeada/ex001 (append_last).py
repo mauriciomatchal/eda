@@ -23,8 +23,7 @@ class DoubleList:
             temp = self.head
             while temp is not None:
                 print(f'{temp.show_node()}')
-                temp = temp.prox
-        
+                temp = temp.prox  
 def main():
     l = DoubleList()
     l.append_last(Node(1))
