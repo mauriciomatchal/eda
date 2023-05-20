@@ -46,19 +46,20 @@ class LinkedList:
                 break
             temp_1 = temp_1.prox
             temp_2 = temp_2.prox.prox
+            #The second pointer moves twice the speed of the first one
         if temp_2 is None:
             print('Clico nao encontrado')
 #
 def main():
-    l = LinkedList()
-    l.append_last(Node("A"))
-    l.append_last(Node("D"))
-    l.append_last(Node("E"))
-    l.append_last(Node("A"))
-    l.append_last(Node("F"))
-    l.show()
-    l.set_prox(2)
-    l.check_cicle()
+    obj_list = LinkedList()
+    obj_list.append_last(Node("A"))
+    obj_list.append_last(Node("D"))
+    obj_list.append_last(Node("E"))
+    obj_list.append_last(Node("A"))
+    obj_list.append_last(Node("F"))
+    obj_list.show()
+    obj_list.set_prox(2)
+    obj_list.check_cicle()
 #
 if __name__ == '__main__':
     main()
