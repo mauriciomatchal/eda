@@ -8,19 +8,40 @@ class Node:
 class Stack:
     def __init__(self):
         self.head = None
-        self.temp = self.head
     def insert_on_stack(self, node):
-        if self.head is None:
-            self.head = node
-        else:
+        if node.value == '(' or node.value == '{' or node.value ==  '[':
             node.prox = self.head
             self.head = node
-            temp_prox = self.temp.prox
-            if self.temp.prox == ')':
-                self.temp = None
-                
-            
-            
+        elif node.value == ')' or node.value == '}' or node.value == ']':
+            temp = self.head
+            if temp.prox is None:
+                if node.value == ')' and temp.value == '(':
+                    self.head = None
+                elif node.value == '}' and temp.value == '{':
+                    self.head = None
+                elif node.value == ']' and temp.value == '[':
+                    self.head = None
+            else:
+                temp = self.head
+                temp2 = self.head
+                while temp2.prox.prox is not None:
+                    temp2 = temp2.prox
+                while temp.prox is not None:
+                    temp = temp.prox
+                if node.value == ')' and temp.value == '(':
+                    temp2 = None
+                elif node.value == '}' and temp.value == '{':
+                    temp2 = None
+                elif node.value == ']' and temp.value == '[':
+                    temp2 = None
+        else:
+            print('Invalid value')
+    def check(self):
+        temp = self.head
+        if temp is None:
+            print('Válido')
+        else:
+            print('Inválido')
     def show(self):
         if self.head is not None:
             print('*** Pilha ***')
@@ -33,12 +54,12 @@ def main():
     lista = Stack()
 
     lista.insert_on_stack(Node('('))
-    lista.show()
     lista.insert_on_stack(Node('('))
-    lista.show()
     lista.insert_on_stack(Node(')'))
+    lista.insert_on_stack(Node('{'))
+    lista.insert_on_stack(Node('}'))
     lista.show()
-
+    lista.check()
 if __name__ == '__main__':
     main()
 
