@@ -7,31 +7,26 @@ class Node:
 class Stack:
     def __init__(self):
         self.head = None
-    
     def show(self):
         if self.head is not None:
             print('*** Pilha ***')
             temp = self.head
             while temp is not None:
                 print(f'{temp.show_node()}')
-                temp = temp.prox
-    
+                temp = temp.prox    
     def is_empty(self):
         return self.head is None
-    
     def push(self, value):
         new_node = Node(value)
         new_node.prox = self.head
         self.head = new_node
-    
     def pop(self):
         if self.is_empty():
             return None
         else:
             value = self.head.value
             self.head = self.head.prox
-            return value
-    
+            return value   
     def check_expression(self, expression):
         opening_brackets = "([{"
         closing_brackets = ")]}"
@@ -42,8 +37,7 @@ class Stack:
                 self.push(char)
             elif char in closing_brackets:
                 if self.is_empty() or self.pop() != bracket_pairs[char]:
-                    return False
-        
+                    return False      
         return self.is_empty()
 
 def main():
