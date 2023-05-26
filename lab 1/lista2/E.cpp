@@ -3,21 +3,21 @@
 using namespace std;
 
 int main() {
-    int pontos;
-    cin >> pontos;
+    int score, sumEven, sumOdd, num;
+    cin >> score;
 
-    int pares[pontos];
-    int impares[pontos];
-
-    for(int i = 1; i <= pontos; i++) {
+    for(int i = 0; i < score; i++) {
+        cin >> num;
         if(i % 2 == 0) {
-            cin >> pares[i];
+            sumEven += num;
         } else {
-            cin >> impares[i];
+            sumOdd += num;
         }
     }
-
-    for(int)
-
+    if(sumEven > sumOdd) {
+        cout << "Vou ajudar" << endl;
+    } else {
+        cout << "Modo Hard" << endl;
+    }
     return 0;
 }

@@ -1,45 +1,41 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 int main() {
-  int fases, vida, vidaatual, dano = 0, i;
+    int fasesAmount, vida, atual, entrada, i;
 
-  cin >> fases;
+    cin >> fasesAmount;
 
-  vector<int> vetor(fases);
-  for (i = 0; i < fases; i++) {
-    cin >> vetor[i];
-  }
-  
-  cin >> vida;
-  vidaatual = vida;
-  
-  do {
-    dano = vetor[i];
-    if (vidaatual > 0) {
-      if (dano == 0) {
-        continue;
-      }  
-      else if (dano == 1) {
-        vidaatual = vida;
-      }
-      else if (dano > vidaatual) {
-        vidaatual = 0;
-      } else {
-        vidaatual = vidaatual - dano;        
-      }
+    int fases[fasesAmount];
+
+    for(i = 0; i < fasesAmount; i++) {
+        cin >> fases[i];
     }
-    i++;
-  } while (i < fases && vidaatual > 0) ;
-   
 
-  if (vidaatual > 0) {
-    cout << "Yes, you can" << endl;
-  } else {
-    cout << "You Died" << endl;
-  }
-      
-  return 0;
+    cin >> vida;
+    atual = vida;
+
+    for(i = 0; i < fasesAmount; i++) {
+        entrada = fases[i];
+        if(atual > 0) {
+            if(entrada == 1) {
+                atual = vida;
+            } else if(entrada > atual) {
+                atual = 0;
+            } else {
+                atual -= entrada;
+            }
+        } else {
+            break;
+        }
+    }
+    
+    if(atual > 0) {
+        cout << "Yes, you can" << endl;
+    } else {
+        cout << "You Died" << endl;
+    }
+
+    return 0;
 }
