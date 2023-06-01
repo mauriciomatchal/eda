@@ -13,9 +13,7 @@ class Stack:
             temp = self.head
             while temp is not None:
                 print(f'{temp.show_node()}')
-                temp = temp.prox 
-    def empty(self):
-        self.head = None
+                temp = temp.prox
     def push(self, node):
         node = Node(node)
         node.prox = self.head
@@ -26,23 +24,23 @@ class Stack:
         else:
             self.head = self.head.prox
     def check_valitude(self, vector):
-        opening_brackets = "([{"
-        closing_brackets = ")]}"
-        bracket_pairs = {')': '(', ']': '[', '}': '{'}
-    
-        for i in vector:
-            if i in opening_brackets:
-                self.push(i)
-            elif i in closing_brackets:
-                if self.head is not None and bracket_pairs[i] == self.head.value:
+        opening = "([{"
+        closing = ")]}"
+        brackets = {')': '(', ']': '[', '}': '{'}
+   
+        for x in vector:
+            if x in opening:
+                self.push(x)
+            elif x in closing:
+                if self.head is not None and brackets[x] == self.head.value:
                     self.pop()
                 else:
-                    return False        
+                    return False
         return self.head is None
 
 def main():
     lista = Stack()
-    if lista.check_valitude(input()):
+    if lista.check_valitude(input()) is True:
         print("Valid expression")
     else:
         print("Invalid expression")
