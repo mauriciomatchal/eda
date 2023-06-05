@@ -26,6 +26,9 @@ class LinkedList:
             while temp is not None:
                 print(f'{temp.show_node()}')
                 temp = temp.prox
+    def create_cycle(self):
+        if self.head is not None:
+            temp = self.head
     def set_prox(self, pos):
         if self.head is not None:
             temp = self.head
@@ -42,7 +45,7 @@ class LinkedList:
         temp_2 = self.head.prox
         while temp_2 is not None:
             if temp_1 == temp_2:
-                print('Clico encontrado')
+                print('Clico')
                 break
             temp_1 = temp_1.prox
             temp_2 = temp_2.prox.prox
@@ -52,12 +55,12 @@ class LinkedList:
 #
 def main():
     obj_list = LinkedList()
-    obj_list.append_last(Node("A"))
-    obj_list.append_last(Node("D"))
-    obj_list.append_last(Node("E"))
-    obj_list.append_last(Node("A"))
-    obj_list.append_last(Node("F"))
-    obj_list.show()
+    obj_list.append_last(Node(1))
+    obj_list.append_last(Node(2))
+    obj_list.append_last(Node(3))
+    obj_list.append_last(Node(4))
+    obj_list.append_last(Node(5))
+
     obj_list.set_prox(2)
     obj_list.check_cicle()
 #
