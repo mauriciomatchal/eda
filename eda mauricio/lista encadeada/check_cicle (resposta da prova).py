@@ -29,6 +29,12 @@ class LinkedList:
     def create_cycle(self):
         if self.head is not None:
             temp = self.head
+            temp2 = self.head.prox
+            while temp is not None:
+                if temp.prox is None:
+                    temp.prox = temp2
+                    break
+                temp = temp.prox
     def set_prox(self, pos):
         if self.head is not None:
             temp = self.head
@@ -40,7 +46,7 @@ class LinkedList:
                     temp.prox = temp_pos
                     break
                 temp = temp.prox
-    def check_cicle(self):
+    def check_cycle(self):
         temp_1 = self.head
         temp_2 = self.head.prox
         while temp_2 is not None:
@@ -60,9 +66,8 @@ def main():
     obj_list.append_last(Node(3))
     obj_list.append_last(Node(4))
     obj_list.append_last(Node(5))
-
-    obj_list.set_prox(2)
-    obj_list.check_cicle()
+    obj_list.create_cycle()
+    obj_list.check_cycle()
 #
 if __name__ == '__main__':
     main()
