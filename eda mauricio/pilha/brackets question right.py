@@ -51,7 +51,6 @@ class Stack:
             print('Valido')
         else:
             print('Invalido')
-            
 def main():
     lista = Stack()
     lista.input_()
