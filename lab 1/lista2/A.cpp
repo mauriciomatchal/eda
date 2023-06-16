@@ -6,7 +6,6 @@
 using namespace std;
 
 int main() {
-    // ordenar as músicas por odem alfabetica -> pesquisar como fazer isso
     int amount;
     cin >> amount;
     cin.ignore();

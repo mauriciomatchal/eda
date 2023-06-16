@@ -1,0 +1,13 @@
+int *p;
+int v;
+p = &v; // aponta o ponteiro p para v
+
+int i, j;
+int *ip;
+i = 12;
+ip = &i;
+j = *ip;
+*ip = 12;
+
+float m[10], *pf;
+pf = m;
