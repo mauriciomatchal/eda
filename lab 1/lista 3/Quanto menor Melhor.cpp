@@ -7,7 +7,7 @@ using namespace std;
 
 string tradutor(string frase) {
 
-
+    
 }
 
 int main() {
