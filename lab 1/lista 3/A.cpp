@@ -14,13 +14,13 @@ int main() {
         int i;
 	    int verify = 0;
         while (i < max) {
-            int rem = num % i
-        }
-        }
-        if(verify == 0) {
-            cout << "Seu numero nao é primo";
+            int rem = num % i;
         }
     }
+    if(verify == 0) {
+        cout << "Seu numero nao é primo";
+    }
+    
 
 	return 0;
 }
