@@ -4,7 +4,7 @@ class Node:
         self.prox = None
 
     def show_node(self):
-        return str(self.value)
+        return f'{self.value}'
 
 
 class LinkedList:
@@ -22,12 +22,12 @@ class LinkedList:
             print('Empty list')
 
     def check_cycle(self):
+        temp1 = self.head
+        temp2 = self.head.prox
+        
         if self.head is None:
             return False
         end = False
-        
-        temp1 = self.head
-        temp2 = self.head.prox
 
         while temp2 is not None and temp2.prox is not None:
             if temp1 == temp2:
@@ -42,6 +42,7 @@ class LinkedList:
         node, prox_node = input().split()
         node = Node(node)
 
+        # insere o valor de node na lista
         if self.head is None:
             self.head = node
         else:
@@ -50,15 +51,14 @@ class LinkedList:
                 temp = temp.prox
             temp.prox = node
 
-        if prox_node == 'None':
-            node.prox = None
-        else:
-            temp = self.head
-            while temp is not None:
-                if temp.value == prox_node:
-                    node.prox = temp
-                    break
-                temp = temp.prox
+        # checa se o valor de prox_node existe na lista
+        # se existe, ele cria o ciclo, se nao, ele ignora
+        temp = self.head
+        while temp is not None:
+            if temp.value == prox_node:
+                node.prox = temp
+                break
+            temp = temp.prox
 
 def main():
     size = int(input())

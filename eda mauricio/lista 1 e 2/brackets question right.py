@@ -25,24 +25,24 @@ class Stack:
             print('Lista vazia')
         else:
             self.head = self.head.prox
-    # creates a dictionary with closing and opening brackets
-    # then checks the input, if its an opening bracket i pushes
-    # however if it's a closing one, it checks if the opening
-    # corresponding bracket is atop of the stack, then it pops
-    # if not it's invalid so it returns False.
+            
     def check_valitude(self, input):
-        opening = "([{"
-        closing = ")]}"
-        brackets = {')': '(', ']': '[', '}': '{'}
-   
         for x in input:
-            if x in opening:
+            if x == '(' or x == '[' or x == '{':
                 self.push(x)
-            elif x in closing:
-                if self.head is not None and brackets[x] == self.head.value:
-                    self.pop()
-                else:
+            elif x == ')' or x == ']' or x == '}':
+                if self.head is None:
                     return False
+                else:
+                    if x == ')' and self.head.value == '(':
+                        self.pop()
+                    elif x == '}' and self.head.value == '{':
+                        self.pop()
+                    elif x == ']' and self.head.value == '[':
+                        self.pop()
+                    else:
+                        return False
+                    
         return self.head is None
     # checks if the outcome of the previous method is true or false
     # and assigns the corresponding outcome to each case.
