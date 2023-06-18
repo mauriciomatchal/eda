@@ -16,7 +16,7 @@ class LinkedList:
             print('*** List ***')
             temp = self.head
             while temp is not None:
-                print(temp.show_node())
+                print(f'{temp.show_node()}')
                 temp = temp.prox
         else:
             print('Empty list')
