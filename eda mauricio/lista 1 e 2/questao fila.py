@@ -7,6 +7,7 @@ class Node:
 class Queue:
     def __init__(self):
         self.head = None
+        self.tail = None
     def show(self):
         a = ''
         if self.head is None:
@@ -22,11 +23,10 @@ class Queue:
         node = Node(value)
         if self.head is None:
             self.head = node
+            self.tail = node
         else:
-            temp = self.head
-            while temp.prox is not None:
-                temp = temp.prox
-            temp.prox = node
+            self.tail.prox = node
+            self.tail = node
     def out(self):
         if self.head is None:
             print('Empty List')
