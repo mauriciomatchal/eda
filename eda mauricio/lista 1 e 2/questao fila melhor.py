@@ -49,67 +49,53 @@ def main():
     ups_input = input().split()
     process_ups = Queue()
     for x in ups_input:
-        process_ups.add(int(x)) 
-    
-    def calculate(max_up):     
+        process_ups.add(int(x))
+        
+    def next_round(up, id):
+        process_ups.out()
+        process_ids.out()
+        process_ups.add(up)
+        process_ids.add(id)
+    def both_out():
+        process_ids.out()
+        process_ups.out()
+    def both_show():
+        process_ids.show()
+        process_ups.show()
+    def calculate(max_up): 
         while max_up != 0:
             id = process_ids.get_first_element()
             up = process_ups.get_first_element()
             if up < max_up:
                 if max_up < quantum:
-                    # up < max_up < quantum
-                    
-                    process_ids.out()
-                    process_ups.out()
-                    
-                    process_ids.show()
-                    process_ups.show()
+                    both_out()
+                    both_show()
                     max_up = 0
                 else:
-                    #max_up > quantum
                     if up > quantum:
-                        new_up = up - quantum    
-                        process_ups.out()
-                        process_ids.out()
-                        process_ups.add(new_up)
-                        process_ids.add(id)
-                        max_up = max_up - quantum
+                        up -= quantum    
+                        next_round(up, id)
+                        max_up -= quantum
                     else:
-                    #  max_up > quantum > up
-                        process_ids.out()
-                        process_ups.out()
-                        max_up = max_up - up
+                        both_out()
+                        max_up -= up
             else:
-            # up >= max_up
                 if up > quantum:
                     if max_up > quantum:
-                        new_up = up - quantum
-                        process_ups.out()
-                        process_ids.out()
-                        process_ups.add(new_up)
-                        process_ids.add(id)
+                        up -= quantum
+                        next_round(up, id)
                         max_up = max_up - quantum
                     else:
-                        new_up = up - max_up
-                        process_ups.out()
-                        process_ids.out()
-                        process_ups.add(new_up)
-                        process_ids.add(id)
-                        
-                        process_ids.show()
-                        process_ups.show()
+                        up -= max_up
+                        next_round(up, id)
+                        both_show()
                         max_up = 0
                 else:
-                # up <= quantum
-                    new_up = up - max_up
-                    process_ups.out()
-                    process_ids.out()
-                    process_ups.add(new_up)
-                    process_ids.add(id)
-                    
-                    process_ids.show()
-                    process_ups.show()
-                    max_up = 0                  
-    calculate(max_up)    
+                    up -= max_up
+                    next_round(up, id)
+                    both_show()
+                    max_up = 0
+    calculate(max_up) 
 if __name__ == '__main__':
     main()
+
