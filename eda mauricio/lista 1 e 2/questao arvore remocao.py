@@ -68,28 +68,29 @@ class Tree:
     def remove_algorithm(self, temp, value):
         if temp is None:
             return None
-        elif value < temp.value:
-            temp.esq = self.remove_algorithm(temp.esq, value)
         elif value > temp.value:
             temp.dir = self.remove_algorithm(temp.dir, value)
+        elif value < temp.value:
+            temp.esq = self.remove_algorithm(temp.esq, value)
         else:
             if temp.esq is None and temp.dir is None:
                 return None
-            elif temp.esq is None:
-                return temp.dir
             elif temp.dir is None:
                 return temp.esq
+            elif temp.esq is None:
+                return temp.dir
             else:
-                min_value = self.lowest_value(temp.dir)
-                temp.value = min_value
-                temp.dir = self.remove_algorithm(temp.dir, min_value)
+                temp.value = self.lowest_value(temp.dir)
+                
+                temp.dir = self.remove_algorithm(temp.dir, self.lowest_value(temp.dir))
         return temp
 
     def lowest_value(self, node):
-        current = node
-        while current.esq is not None:
-            current = current.esq
-        return current.value
+        temp = node
+        while temp.esq is not None:
+            temp = temp.esq
+        temp_value = temp.value
+        return temp_value
     
     def in_order_limit(self, node):
         if node is not None:
