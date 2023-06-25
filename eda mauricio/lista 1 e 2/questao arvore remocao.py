@@ -122,15 +122,18 @@ def main():
     nodes = input().split()
     for x in nodes:
         t.add(int(x))
-    remove1, remove2 = input().split()
-    remove1 = int(remove1)
-    remove2 = int(remove2)
+    #remove1, remove2 = input().split()
+    removes = [int(x) for x in input().split()]
+    #remove1 = int(remove1)
+    #remove2 = int(remove2)
     limit = int(input())
     
     t.in_order_limit(t.root)    
     t.print_values(limit)
-    t.remove(remove1)
-    t.remove(remove2)
+    #t.remove(remove1)
+    #t.remove(remove2)
+    for x in removes:
+        t.remove(x)
     t.in_order_limit2(t.root)
     t.print_values2(limit)
 
