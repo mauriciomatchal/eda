@@ -7,8 +7,7 @@ using namespace std;
 
 int main() {
     int figurinhas, consultas, i;
-    
-    unordered_map<int,int> aaa;
+    unordered_map< int,int> aaa;
     vector<int> ids;
     vector<int> quantidades;
 

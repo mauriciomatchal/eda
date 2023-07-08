@@ -19,11 +19,16 @@ int main() {
 
     cin >> consultas;
     
-    vector<int> trocas;
     for (i = 0; i < consultas; i++) {
         int troca;
         cin >> troca;
-        trocas.push_back(troca);
+        if (find(ids.begin(), ids.end(), troca) == ids.end()) {
+            cout << "Quero" << endl;
+        } else {
+            if (quantidades[troca] == 1) {
+                
+            }
+        }
     }
     for (int troca : trocas) {
         if (find(ids.begin(), ids.end(), troca) == ids.end()) {
