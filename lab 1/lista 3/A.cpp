@@ -1,26 +1,30 @@
 #include <iostream>
+
 using namespace std;
 
-int main() {
-	int num;
-	cin >> num;
-    float max = num/2;
-    float floor(max);
-	if (num == 0) {
-		return 0;
-	} else if (num == 2 || num == 3 || num == 5) {
-	    cout << "Seu numero é primo";
-	} else {
-        int i;
-	    int verify = 0;
-        while (i < max) {
-            int rem = num % i;
-        }
-    }
-    if(verify == 0) {
-        cout << "Seu numero nao é primo";
-    }
-    
+int main() {  
+    int num, max = 0, checker;
+    while (true) {
+        cin >> num;  
+        max = num/2;
+        checker = 0;
+        if (num == 0) {
+            return 0;
+        } else if (num == 1) {
+            cout << "O numero de cadeiras nao eh primo!" << endl;
+            continue;
+        }  
+        for (int i = 2; i <= max; i++) {  
+            if (num % i == 0) {  
+                checker = 1;
+            }  
+        }  
+        if (checker == 0) {
+            cout << "O numero de cadeiras eh primo!" << endl;
+        } else {
+            cout << "O numero de cadeiras nao eh primo!" << endl;
+        } 
+    }  
+    return 0;
 
-	return 0;
-}
+}  
